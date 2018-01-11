@@ -19,12 +19,13 @@ build:
     - script: 
       name: build
       code: |
-        mkdir -p /usr/local/tomcat/webapps/portal
+        rm -fr /usr/local/tomcat/webapps/*
+        mkdir -p /usr/local/tomcat/webapps/ROOT
         ls
         echo 'pwd1'
         pwd
-        mv ./portal.war /usr/local/tomcat/webapps/portal/
-        cd /usr/local/tomcat/webapps/portal 
+        mv ./portal.war /usr/local/tomcat/webapps/ROOT/
+        cd /usr/local/tomcat/webapps/ROOT 
         du -sh ./*
         jar -xvf portal.war
         rm -fr portal.war
