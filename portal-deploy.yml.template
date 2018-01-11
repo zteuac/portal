@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: portal
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      containers:
+      - name: portal
+        image: wcr.io/zteuac/portal:$TAG
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 4Gi
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: wrelease
